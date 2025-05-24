@@ -24,7 +24,6 @@ import { ChevronDownIcon } from '@chakra-ui/icons';
 
 // Util
 import { truncatedPublicKey } from '@/util/helper';
-import { Mixpanel } from '@/util/mixepanel';
 
 
 const ConnectWalletButton = () => {
@@ -41,7 +40,6 @@ const ConnectWalletButton = () => {
       console.log('Connection event', wallet.readyState);
       select(wallet.adapter.name);
       await connect();
-      Mixpanel.track("wallet_connected", { wallet: wallet.adapter.name })
     } catch (e) {
       console.log("Wallet Error: ", e);
       toast({ status: "info", title: 'A non-critical error occured. Try connecting again.' })
