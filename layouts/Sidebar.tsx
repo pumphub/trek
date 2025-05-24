@@ -9,7 +9,6 @@ import { createNodeId, createNodePos } from '@/util/randomData';
 import { getUser } from '@/util/program/user';
 import { useAnchorWallet } from '@solana/wallet-adapter-react';
 import NodeWallet from '@project-serum/anchor/dist/cjs/nodewallet';
-import { Mixpanel } from '@/util/mixepanel';
 import { ThemeSwitcher } from '@/components/ThemeSwitcher';
 
 type Props = {
@@ -42,7 +41,6 @@ const Sidebar = ({ sidebarContent, multiplayer }: Props) => {
   const handleNodeAdd = (type: string, title: string) => {
     console.log(type,)
     addNode(type)
-    Mixpanel.track("node_add", { type, title })
   }
 
   useEffect(() => {
